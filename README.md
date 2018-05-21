@@ -1,2 +1,3 @@
 # Simon-Project1
-initioal immersive project
+initial immersive project
+"My ambition still burns strong"
