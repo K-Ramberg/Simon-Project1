@@ -7,3 +7,4 @@ wire-frame folder link: https://github.com/K-Ramberg/Simon-Project1/tree/master/
 
 Involved Libraries
 JQUERY
+Materialize (woot for grid layout)
