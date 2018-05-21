@@ -6,9 +6,21 @@ html {
     color: rgb(36, 26, 26);
 }
 
-.quadrant {
-    border: 3px solid rgb(74, 74, 206);
+.main-page {
+    text-align: center;
 }
+
+.quadrant {
+    border: 2px solid rgb(74, 74, 206);
+    line-height: 5rem;
+}
+
+/* To be added as class to quadrant in .js implementing selection blowup */
+.quadrant-selected {
+    border: 3px solid black;
+    border-radius: 5px;
+}
+
 
 #simon-selector-1 {
     background-color: red;
