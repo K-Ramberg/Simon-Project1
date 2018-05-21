@@ -3,6 +3,7 @@ const gameFoundationState = {
     computerSequenceArray: [],
     playerSelectionSequence: [],
     gameLevel: 1,
+    isMatch: true,
     currentTimeSet: function () {
         if (this.difficulty === 'easy') {
             return 1000
@@ -27,7 +28,23 @@ const GameRun = {
         FlasherGroup.onOffQuadrant(selection);
         gameFoundationState.computerSequenceArray.push(selection)
     },
-}
+    inertAllQuads: function(){
+        $('#simon-selector-1, #simon-selector-2, #simon-selector-3, #simon-selector-4').addClass("quads-while-running")
+    },
+    bringBackAllQuads : function(){
+        $('#simon-selector-1, #simon-selector-2, #simon-selector-3, #simon-selector-4').removeClass("quads-while-running")
+    },
+    computerInitiate: function(){
+        if (gameFoundationState.isMatch === true){
+        this.inertAllQuads();
+        this.computerSimonSequence();
+        this.bringBackAllQuads();
+        } 
+    },
+} // end of gameRun
+
+
+
 
 
 const FlasherGroup = {
@@ -90,5 +107,5 @@ $('#simon-selector-4').click(function () {
 
 
 $('#start-button').click(function () {
-    GameRun.computerSimonSequence();
+    GameRun.computerInitiate();
 })

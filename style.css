@@ -23,8 +23,13 @@ html {
 .quadrant-selected {
     border: 3px solid black;
     border-radius: 5px;
+    pointer-events: none;
 }
 
+/* to be added while computer is running so player cant interfere */
+.quads-while-running{
+    pointer-events: none;
+}
 
 #simon-selector-1 {
     background-color: red;
