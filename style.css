@@ -1,3 +1,27 @@
+/* * {
+    border: solid;
+} */
 html {
     background: rgb(209, 197, 197);
+    color: rgb(36, 26, 26);
+}
+
+.quadrant {
+    border: 3px solid rgb(74, 74, 206);
+}
+
+#simon-selector-1 {
+    background-color: red;
+}
+
+#simon-selector-2 {
+    background-color: blue;
+}
+
+#simon-selector-3 {
+    background-color: yellow;
+}
+
+#simon-selector-4 {
+    background-color: green;
 }
