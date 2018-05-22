@@ -1,7 +1,7 @@
-const gameFoundationState = {
+const gameFoundation = {
     difficulty: 'easy',
-    computerSequenceArray: [],
-    playerSelectionSequence: [],
+    computerArray: [],
+    playerArray: [],
     gameLevel: 1,
     isMatch: true,
     currentTimeSet: function () {
@@ -30,15 +30,15 @@ const GameRun = {
     },
     computerSimonSequence: function () {
         const selection = this.sequenceNumGenerate();
-        gameFoundationState.computerSequenceArray.push(selection)
+        gameFoundation.computerArray.push(selection)
     },
 
     sequenceFlash: function () {
-        for (let i = 0; i <= gameFoundationState.computerSequenceArray.length; i++) {
-            if (gameFoundationState.computerSequenceArray.length > 0) {
+        for (let i = 0; i <= gameFoundation.computerArray.length; i++) {
+            if (gameFoundation.computerArray.length > 0) {
                 setTimeout(function () {
-                    FlasherGroup.onOffQuadrant(gameFoundationState.computerSequenceArray[i])
-                }, (gameFoundationState.currentTimeSet() + (gameFoundationState.currentTimeSet() / 5)) * i)
+                    FlasherGroup.onOffQuadrant(gameFoundation.computerArray[i])
+                }, (gameFoundation.currentTimeSet() + (gameFoundation.currentTimeSet() / 5)) * i)
             }
         }
     },
@@ -49,7 +49,7 @@ const GameRun = {
         $('#simon-selector-1, #simon-selector-2, #simon-selector-3, #simon-selector-4').removeClass("quads-while-running")
     },
     computerInitiate: function () {
-        if (gameFoundationState.isMatch === true) {
+        if (gameFoundation.isMatch === true) {
             this.inertAllQuads();
             this.computerSimonSequence();
             this.sequenceFlash();
@@ -59,30 +59,29 @@ const GameRun = {
     },
     checkAgainst: function () {
 
-        const iterationSelector = gameFoundationState.playerSelectionSequence.length - 1
-        if (gameFoundationState.playerSelectionSequence[iterationSelector] === gameFoundationState.computerSequenceArray[iterationSelector]) {
+        const iterationSelector = gameFoundation.playerArray.length - 1
+        if (gameFoundation.playerArray[iterationSelector] === gameFoundation.computerArray[iterationSelector]) {
             console.log("CORRECT")
-            if (gameFoundationState.playerSelectionSequence.length === gameFoundationState.computerSequenceArray.length) {
+            if (gameFoundation.playerArray.length === gameFoundation.computerArray.length) {
                 console.log("registering the length is equal")
-                gameFoundationState.playerSelectionSequence = []
+                gameFoundation.playerArray = []
                 setTimeout(function () {
                     GameRun.computerInitiate()
                 }, 3000)
-                console.log("then " + gameFoundationState.playerSelectionSequence)
+                console.log("then the array is " + gameFoundation.playerArray)
             } else {
-                if (gameFoundationState.playerSelectionSequence.length < gameFoundationState.computerSequenceArray.length) {
+                if (gameFoundation.playerArray.length < gameFoundation.computerArray.length) {
                     console.log('is pushing through to another selection')
-                    this.userSelecting()
+                   this.userSelecting();
                 }
             }
         } else {
-            gameFoundationState.isMatch = false
-            gameFoundationState.gameLost();
+            gameFoundation.isMatch = false
+            gameFoundation.gameLost();
             console.log("thinks its wrong")
         }
     },
     userSelecting: function () {
-        if (gameFoundationState.playerSelectionSequence.length < gameFoundationState.computerSequenceArray.length) {
             $('#simon-selector-1').click(function () {
                 GameRun.clickRun(1)
             })
@@ -95,16 +94,15 @@ const GameRun = {
             $('#simon-selector-4').click(function () {
                 GameRun.clickRun(4)
             })
-        }
     },
 
     //if (gameFoundationState.playerSelectionSequence.length < gameFoundationState.computerSequenceArray.length){
 
     clickRun: function (number) {
         FlasherGroup.onOffQuadrant(number);
-        gameFoundationState.playerSelectionSequence.push(number)
-        console.log("first " + gameFoundationState.playerSelectionSequence)
-        GameRun.checkAgainst()
+        gameFoundation.playerArray.push(number)
+        console.log("first this array is " + gameFoundation.playerArray)
+        GameRun.checkAgainst() 
     },
 
 } // end of gameRun
@@ -147,7 +145,7 @@ const FlasherGroup = {
         this.selectIndicator(selectorNumber);
         setTimeout(function () {
             FlasherGroup.unIndicate(selectorNumber)
-        }, gameFoundationState.currentTimeSet())
+        }, gameFoundation.currentTimeSet())
     }
 
 }
@@ -165,11 +163,11 @@ $('#start-button').click(function () {
 })
 
 $('#reset').click(function(){
-    gameFoundationState.difficulty = 'easy'
-    gameFoundationState.gameLevel = 1
-    gameFoundationState.isMatch = true
-    gameFoundationState.playerSelectionSequence = []
-    gameFoundationState.computerSequenceArray = []
+    gameFoundation.difficulty = 'easy'
+    gameFoundation.gameLevel = 1
+    gameFoundation.isMatch = true
+    gameFoundation.playerArray = []
+    gameFoundation.computerArray = []
     $('#start-button').removeClass("quads-while-running")
     $('.container').html(` <div class="row" id="gameboard-first-row">
     <div class="col s6 hoverable quadrant quads-while-running" id="simon-selector-1">1</div>
