@@ -69,10 +69,6 @@ html {
     max-width: 30rem;
 }
 
-.successful {
-    border: 2px solid rgba(0, 128, 0, 0.507);
-}
-
 .computer-done {
     border: 2px solid rgb(231, 231, 72);
 }

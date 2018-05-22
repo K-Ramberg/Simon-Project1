@@ -66,9 +66,10 @@ const GameRun = {
         if (gameFoundation.playerArray[iterationSelector] === gameFoundation.computerArray[iterationSelector]) {
             console.log("CORRECT")
             if (gameFoundation.playerArray.length === gameFoundation.computerArray.length) {
-                Success();
+                $('#game-board').fadeOut('fast')
                 gameFoundation.playerArray = []
-                setTimeout(function(){$('#level-number').html(gameFoundation.computerArray.length+1)}, 1000)
+                setTimeout(function(){$('#level-number').html(gameFoundation.computerArray.length+1)
+                $('#game-board').fadeIn('fast')}, 1000)
                 setTimeout(function () {
                     GameRun.computerInitiate()
                 }, 2000)
@@ -145,11 +146,6 @@ const FlasherGroup = {
     }
 
 } //end of flasher group
-
-
-function Success (){
-$('#game-board').addClass("successful")
-setTimeout(function(){$('#game-board').removeClass("successful")},1000)}
 
 
 $('#start-button').click(function () {
