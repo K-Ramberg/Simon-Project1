@@ -55,16 +55,38 @@ const GameRun = {
             this.computerSimonSequence();
             this.sequenceFlash();
             this.bringBackAllQuads();
+            this.userSelecting();
         }
     },
     checkAgainst: function () {
-        if (gameFoundationState.playerSelectionSequence[gameFoundationState.playerSelectionSequence.length-1] !== gameFoundationState.computerSequenceArray[gameFoundationState.playerSelectionSequence-1]) {
+        const iterationSelector = gameFoundationState.playerSelectionSequence.length-1
+        if (gameFoundationState.playerSelectionSequence[iterationSelector] != gameFoundationState.computerSequenceArray[iterationSelector]) {
             gameFoundationState.isMatch = false
             gameFoundationState.gameLost();
+            console.log("wellwellwell")
         }
     },
     userSelecting : function(){
-
+        $('#simon-selector-1').click(function () {
+            FlasherGroup.onOffQuadrant(1);
+            gameFoundationState.playerSelectionSequence.push(1)
+            GameRun.checkAgainst();
+        })
+        $('#simon-selector-2').click(function () {
+            FlasherGroup.onOffQuadrant(2);
+            gameFoundationState.playerSelectionSequence.push(2)
+            GameRun.checkAgainst();
+        })
+        $('#simon-selector-3').click(function () {
+            FlasherGroup.onOffQuadrant(3);
+            gameFoundationState.playerSelectionSequence.push(3)
+            GameRun.checkAgainst();
+        })
+        $('#simon-selector-4').click(function () {
+            FlasherGroup.onOffQuadrant(4);
+            gameFoundationState.playerSelectionSequence.push(4)
+            GameRun.checkAgainst();
+        })
     },
 } // end of gameRun
 
@@ -113,22 +135,7 @@ const FlasherGroup = {
 
 
 
-$('#simon-selector-1').click(function () {
-    FlasherGroup.onOffQuadrant(1);
-    gameFoundationState.playerSelectionSequence.push(1)
-})
-$('#simon-selector-2').click(function () {
-    FlasherGroup.onOffQuadrant(2);
-    gameFoundationState.playerSelectionSequence.push(2)
-})
-$('#simon-selector-3').click(function () {
-    FlasherGroup.onOffQuadrant(3);
-    gameFoundationState.playerSelectionSequence.push(3)
-})
-$('#simon-selector-4').click(function () {
-    FlasherGroup.onOffQuadrant(4);
-    gameFoundationState.playerSelectionSequence.push(4)
-})
+
 
 
 $('#start-button').click(function () {
