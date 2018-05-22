@@ -10,7 +10,7 @@ html {
     text-align: center;
 }
 
-#start-button, #reset {
+#start-button, #reset, #diff-toggle {
     border: 2px solid black;
 }
 

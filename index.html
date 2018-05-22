@@ -22,24 +22,27 @@
                     <div id="level-number">1</div>
                 </div>
                 <div class="col s4 hoverable" id="start-button">START</div>
-                <div class="col s4" id="difficulty-marker">make difficulty(select with dropdown? will influence unIndicate setTimeOut)</div>
+                <div class="col s4" id="difficulty-marker">
+                    <div class="hoverable" id="diff-toggle">Difficulty</div>
+                    <div id="diff-select">Easy</div>
+                </div>
             </div>
-        </div>
-        <div class="container" id="game-board">
-            <div class="row" id="gameboard-first-row">
-                <div class="col s6 hoverable quadrant quads-while-running" id="simon-selector-1">1</div>
-                <div class="col s6 hoverable quadrant quads-while-running" id="simon-selector-2">2</div>
+            <div class="container" id="game-board">
+                <div class="row" id="gameboard-first-row">
+                    <div class="col s6 hoverable quadrant quads-while-running" id="simon-selector-1">1</div>
+                    <div class="col s6 hoverable quadrant quads-while-running" id="simon-selector-2">2</div>
+                </div>
+                <div class="row" id="gameboard-second-row">
+                    <div class="col s6 hoverable quadrant quads-while-running" id="simon-selector-3">3</div>
+                    <div class="col s6 hoverable quadrant quads-while-running" id="simon-selector-4">4</div>
+                </div>
             </div>
-            <div class="row" id="gameboard-second-row">
-                <div class="col s6 hoverable quadrant quads-while-running" id="simon-selector-3">3</div>
-                <div class="col s6 hoverable quadrant quads-while-running" id="simon-selector-4">4</div>
+            <div class="row" id="page-foot">
+                <div class="col s3 offset-s2 hoverable" id="reset">RESET GAME</div>
             </div>
-        </div>
-        <div class="row" id="page-foot">
-            <div class="col s3 offset-s2 hoverable" id="reset">RESET GAME</div>
+
         </div>
 
-    </div>
 
 
 
@@ -50,11 +53,10 @@
 
 
 
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
-    <script src="main.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+        <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+        <script src="main.js"></script>
 </body>
 
 </html>

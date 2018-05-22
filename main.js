@@ -171,4 +171,21 @@ $('#reset').click(function () {
     <div class="col s6 hoverable quadrant quads-while-running" id="simon-selector-4">4</div>
     </div>`)
     $('#level-number').html(1)
+    $('#diff-select').html('Easy')
+    gameFoundation.difficulty = 'easy'
+})
+
+$('#diff-toggle').click(function(){
+    if (gameFoundation.difficulty === 'easy'){
+        $('#diff-select').html('Medium')
+        gameFoundation.difficulty = 'medium'
+    }
+     else if (gameFoundation.difficulty === 'medium'){
+         $('#diff-select').html('Hard')
+         gameFoundation.difficulty = 'hard'
+     }
+    else if (gameFoundation.difficulty === 'hard'){
+       $('#diff-select').html('Easy')
+         gameFoundation.difficulty = 'easy'
+     }
 })
