@@ -37,7 +37,7 @@ const GameRun = {
             if (gameFoundation.computerArray.length > 0) {
                 setTimeout(function () {
                     FlasherGroup.onOffQuadrant(gameFoundation.computerArray[i])
-                }, (gameFoundation.currentTimeSet()  * i) + 500)
+                }, (gameFoundation.currentTimeSet() + (gameFoundation.currentTimeSet() / 5)) * i)
             }
         }
     },
@@ -129,7 +129,7 @@ const FlasherGroup = {
     },
 
     onOffQuadrant: function (selectorNumber) {
-        this.selectIndicator(selectorNumber);
+        this.selectIndicator(selectorNumber)
         setTimeout(function () {
             FlasherGroup.unIndicate(selectorNumber)
         }, gameFoundation.currentTimeSet())
