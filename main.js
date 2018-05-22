@@ -60,34 +60,32 @@ const GameRun = {
     },
     checkAgainst: function () {
         const iterationSelector = gameFoundationState.playerSelectionSequence.length-1
-        if (gameFoundationState.playerSelectionSequence[iterationSelector] != gameFoundationState.computerSequenceArray[iterationSelector]) {
+        if (gameFoundationState.playerSelectionSequence[iterationSelector] !== gameFoundationState.computerSequenceArray[iterationSelector]) {
             gameFoundationState.isMatch = false
             gameFoundationState.gameLost();
-            console.log("wellwellwell")
+            console.log("iterationSelector")
         }
     },
     userSelecting : function(){
-        $('#simon-selector-1').click(function () {
-            FlasherGroup.onOffQuadrant(1);
-            gameFoundationState.playerSelectionSequence.push(1)
-            GameRun.checkAgainst();
-        })
-        $('#simon-selector-2').click(function () {
-            FlasherGroup.onOffQuadrant(2);
-            gameFoundationState.playerSelectionSequence.push(2)
-            GameRun.checkAgainst();
-        })
-        $('#simon-selector-3').click(function () {
-            FlasherGroup.onOffQuadrant(3);
-            gameFoundationState.playerSelectionSequence.push(3)
-            GameRun.checkAgainst();
-        })
-        $('#simon-selector-4').click(function () {
-            FlasherGroup.onOffQuadrant(4);
-            gameFoundationState.playerSelectionSequence.push(4)
-            GameRun.checkAgainst();
-        })
+    $('#simon-selector-1').click(function (){GameRun.clickRun(1)})
+    $('#simon-selector-2').click(function () {GameRun.clickRun(2)})
+    $('#simon-selector-3').click(function () {GameRun.clickRun(3)})
+    $('#simon-selector-4').click(function () {GameRun.clickRun(4)})
     },
+    
+    //if (gameFoundationState.playerSelectionSequence.length < gameFoundationState.computerSequenceArray.length){
+       
+    clickRun:function (number) {
+         FlasherGroup.onOffQuadrant(number);
+         gameFoundationState.playerSelectionSequence.push(number)
+         this.checkAgainst();
+         if (gameFoundationState.playerSelectionSequence.length === gameFoundationState.computerSequenceArray.length){
+             setTimeout(function(){GameRun.computerInitiate()}, 1500)
+             
+             console.log("woot")
+         }
+        },
+      
 } // end of gameRun
 
 
@@ -129,7 +127,7 @@ const FlasherGroup = {
         setTimeout(function () {
             FlasherGroup.unIndicate(selectorNumber)
         }, gameFoundationState.currentTimeSet())
-    }
+      }
 
 }
 
@@ -140,5 +138,5 @@ const FlasherGroup = {
 
 $('#start-button').click(function () {
     GameRun.computerInitiate();
-    //$('#start-button').addClass("quads-while-running")
+    $('#start-button').addClass("quads-while-running")
 })
