@@ -16,7 +16,7 @@ const gameFoundation = {
     },
     gameLost: function () {
         if (this.isMatch === false) {
-            $('.container').append(`<h1 class="loss">GAME OVER, BETTER LUCK NEXT TIME</h1>`)
+            $('#game-status-markers').append(`<h1 class="loss">GAME OVER, BETTER LUCK NEXT TIME</h1>`)
             setTimeout(function() {play5();}, 600)
         }
     }

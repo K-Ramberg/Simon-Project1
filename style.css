@@ -26,7 +26,6 @@ html {
 /* To be added as class to quadrant in .js implementing selection blowup */
 .quadrant-selected {
     border: 3px solid black;
-    border-radius: 5px;
     pointer-events: none;
 }
 
@@ -36,24 +35,28 @@ html {
 }
 
 #simon-selector-1 {
+    color: #f50800;
     background-color: #f50800;
     background-image: url("https://www.transparenttextures.com/patterns/brick-wall-dark.png");
     border-radius: 100% 0 0 0;
 }
 
 #simon-selector-2 {
+    color: #3b23f5;
     background-color: #3b23f5;
     background-image: url("https://www.transparenttextures.com/patterns/brick-wall-dark.png");
     border-radius: 0 100% 0 0;
 }
 
 #simon-selector-3 {
+    color: #faef23;
     background-color: #faef23;
     background-image: url("https://www.transparenttextures.com/patterns/brick-wall-dark.png");
     border-radius: 0 0 0 100%;
 }
 
 #simon-selector-4 {
+    color: #41ff24;
     background-color: #41ff24;
     background-image: url("https://www.transparenttextures.com/patterns/brick-wall-dark.png");
     border-radius: 0 0 100% 0;
