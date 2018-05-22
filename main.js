@@ -61,7 +61,7 @@ const GameRun = {
         if (gameFoundation.playerArray[iterationSelector] === gameFoundation.computerArray[iterationSelector]) {
             console.log("CORRECT")
             if (gameFoundation.playerArray.length === gameFoundation.computerArray.length) {
-                console.log("registering the length is equal")
+                Success();
                 gameFoundation.playerArray = []
                 setTimeout(function(){$('#level-number').html(gameFoundation.computerArray.length+1)}, 1000)
                 setTimeout(function () {
@@ -140,11 +140,12 @@ const FlasherGroup = {
         }, gameFoundation.currentTimeSet())
     }
 
-}
+} //end of flasher group
 
 
-
-
+function Success (){
+$('#game-board').addClass("successful")
+setTimeout(function(){$('#game-board').removeClass("successful")},1000)}
 
 
 $('#start-button').click(function () {
