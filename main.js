@@ -17,6 +17,7 @@ const gameFoundation = {
     gameLost: function () {
         if (this.isMatch === false) {
             $('.container').append(`<h1 class="loss">GAME OVER, BETTER LUCK NEXT TIME</h1>`)
+            play5();
         }
     }
 }
@@ -106,22 +107,24 @@ const FlasherGroup = {
     selectIndicator: function (selectorNumber) {
         if (selectorNumber === 1) {
             $('#simon-selector-1').addClass("quadrant-selected pulse")
-            
+            play1();
         }
         if (selectorNumber === 2) {
             $('#simon-selector-2').addClass("quadrant-selected pulse")
+            play2();
         }
         if (selectorNumber === 3) {
             $('#simon-selector-3').addClass("quadrant-selected pulse")
+            play3();
         }
         if (selectorNumber === 4) {
             $('#simon-selector-4').addClass("quadrant-selected pulse")
+            play4();
         }
     },
     unIndicate: function (selectorNumber) {
         if (selectorNumber === 1) {
             $('#simon-selector-1').removeClass("quadrant-selected pulse")
-            
         }
         if (selectorNumber === 2) {
             $('#simon-selector-2').removeClass("quadrant-selected pulse")
@@ -185,3 +188,24 @@ $('#diff-toggle').click(function(){
          gameFoundation.difficulty = 'easy'
      }
 })
+
+var audio = new Audio('./sounds/red.m4a');
+function play1 (){
+audio.play();
+}
+var audio2 = new Audio('./sounds/blue.m4a');
+function play2 (){
+audio2.play();
+}
+var audio3 = new Audio('./sounds/yellow.m4a');
+function play3 (){
+audio3.play();
+}
+var audio4 = new Audio('./sounds/green.m4a');
+function play4 (){
+audio4.play();
+}
+var audio5 = new Audio('./sounds/gameover.m4a');
+function play5 (){
+audio5.play();
+}
