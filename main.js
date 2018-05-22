@@ -17,7 +17,6 @@ const gameFoundationState = {
     },
     gameLost: function () {
         if (this.isMatch === false) {
-            GameRun.inertAllQuads();
             $('.container').html(`<h1>GAME OVER, BETTER LUCK NEXT TIME</h1>`)
         }
     }
@@ -59,33 +58,55 @@ const GameRun = {
         }
     },
     checkAgainst: function () {
-        const iterationSelector = gameFoundationState.playerSelectionSequence.length-1
-        if (gameFoundationState.playerSelectionSequence[iterationSelector] !== gameFoundationState.computerSequenceArray[iterationSelector]) {
+
+        const iterationSelector = gameFoundationState.playerSelectionSequence.length - 1
+        if (gameFoundationState.playerSelectionSequence[iterationSelector] === gameFoundationState.computerSequenceArray[iterationSelector]) {
+            console.log("CORRECT")
+            if (gameFoundationState.playerSelectionSequence.length === gameFoundationState.computerSequenceArray.length) {
+                console.log("registering the length is equal")
+                gameFoundationState.playerSelectionSequence = []
+                setTimeout(function () {
+                    GameRun.computerInitiate()
+                }, 3000)
+                console.log("then " + gameFoundationState.playerSelectionSequence)
+            } else {
+                if (gameFoundationState.playerSelectionSequence.length < gameFoundationState.computerSequenceArray.length) {
+                    console.log('is pushing through to another selection')
+                    this.userSelecting()
+                }
+            }
+        } else {
             gameFoundationState.isMatch = false
             gameFoundationState.gameLost();
-            console.log("iterationSelector")
+            console.log("thinks its wrong")
         }
     },
-    userSelecting : function(){
-    $('#simon-selector-1').click(function (){GameRun.clickRun(1)})
-    $('#simon-selector-2').click(function () {GameRun.clickRun(2)})
-    $('#simon-selector-3').click(function () {GameRun.clickRun(3)})
-    $('#simon-selector-4').click(function () {GameRun.clickRun(4)})
+    userSelecting: function () {
+        if (gameFoundationState.playerSelectionSequence.length < gameFoundationState.computerSequenceArray.length) {
+            $('#simon-selector-1').click(function () {
+                GameRun.clickRun(1)
+            })
+            $('#simon-selector-2').click(function () {
+                GameRun.clickRun(2)
+            })
+            $('#simon-selector-3').click(function () {
+                GameRun.clickRun(3)
+            })
+            $('#simon-selector-4').click(function () {
+                GameRun.clickRun(4)
+            })
+        }
     },
-    
+
     //if (gameFoundationState.playerSelectionSequence.length < gameFoundationState.computerSequenceArray.length){
-       
-    clickRun:function (number) {
-         FlasherGroup.onOffQuadrant(number);
-         gameFoundationState.playerSelectionSequence.push(number)
-         this.checkAgainst();
-         if (gameFoundationState.playerSelectionSequence.length === gameFoundationState.computerSequenceArray.length){
-             setTimeout(function(){GameRun.computerInitiate()}, 1500)
-             
-             console.log("woot")
-         }
-        },
-      
+
+    clickRun: function (number) {
+        FlasherGroup.onOffQuadrant(number);
+        gameFoundationState.playerSelectionSequence.push(number)
+        console.log("first " + gameFoundationState.playerSelectionSequence)
+        GameRun.checkAgainst()
+    },
+
 } // end of gameRun
 
 
@@ -127,7 +148,7 @@ const FlasherGroup = {
         setTimeout(function () {
             FlasherGroup.unIndicate(selectorNumber)
         }, gameFoundationState.currentTimeSet())
-      }
+    }
 
 }
 
@@ -137,6 +158,25 @@ const FlasherGroup = {
 
 
 $('#start-button').click(function () {
-    GameRun.computerInitiate();
+    setTimeout(function () {
+        GameRun.computerInitiate()
+    }, 800)
     $('#start-button').addClass("quads-while-running")
+})
+
+$('#reset').click(function(){
+    gameFoundationState.difficulty = 'easy'
+    gameFoundationState.gameLevel = 1
+    gameFoundationState.isMatch = true
+    gameFoundationState.playerSelectionSequence = []
+    gameFoundationState.computerSequenceArray = []
+    $('#start-button').removeClass("quads-while-running")
+    $('.container').html(` <div class="row" id="gameboard-first-row">
+    <div class="col s6 hoverable quadrant quads-while-running" id="simon-selector-1">1</div>
+    <div class="col s6 hoverable quadrant quads-while-running" id="simon-selector-2">2</div>
+</div>
+<div class="row" id="gameboard-second-row">
+    <div class="col s6 hoverable quadrant quads-while-running" id="simon-selector-3">3</div>
+    <div class="col s6 hoverable quadrant quads-while-running" id="simon-selector-4">4</div>
+</div>`)
 })
