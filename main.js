@@ -14,32 +14,57 @@ const gameFoundationState = {
         if (this.difficulty === 'hard') {
             return 250
         }
+    },
+    gameLost: function () {
+        if (this.isMatch === false) {
+            GameRun.inertAllQuads();
+            $('.container').html(`<h1>GAME OVER, BETTER LUCK NEXT TIME</h1>`)
+        }
     }
 }
 
 
 const GameRun = {
-    sequenceNumGenerate: function(){
+    sequenceNumGenerate: function () {
         const quadNumber = Math.ceil(Math.random() * 4)
         return quadNumber
     },
     computerSimonSequence: function () {
         const selection = this.sequenceNumGenerate();
-        FlasherGroup.onOffQuadrant(selection);
         gameFoundationState.computerSequenceArray.push(selection)
     },
-    inertAllQuads: function(){
+
+    sequenceFlash: function () {
+        for (let i = 0; i <= gameFoundationState.computerSequenceArray.length; i++) {
+            if (gameFoundationState.computerSequenceArray.length > 0) {
+                setTimeout(function () {
+                    FlasherGroup.onOffQuadrant(gameFoundationState.computerSequenceArray[i])
+                }, (gameFoundationState.currentTimeSet() + (gameFoundationState.currentTimeSet() / 5)) * i)
+            }
+        }
+    },
+    inertAllQuads: function () {
         $('#simon-selector-1, #simon-selector-2, #simon-selector-3, #simon-selector-4').addClass("quads-while-running")
     },
-    bringBackAllQuads : function(){
+    bringBackAllQuads: function () {
         $('#simon-selector-1, #simon-selector-2, #simon-selector-3, #simon-selector-4').removeClass("quads-while-running")
     },
-    computerInitiate: function(){
-        if (gameFoundationState.isMatch === true){
-        this.inertAllQuads();
-        this.computerSimonSequence();
-        this.bringBackAllQuads();
-        } 
+    computerInitiate: function () {
+        if (gameFoundationState.isMatch === true) {
+            this.inertAllQuads();
+            this.computerSimonSequence();
+            this.sequenceFlash();
+            this.bringBackAllQuads();
+        }
+    },
+    checkAgainst: function () {
+        if (gameFoundationState.playerSelectionSequence[gameFoundationState.playerSelectionSequence.length-1] !== gameFoundationState.computerSequenceArray[gameFoundationState.playerSelectionSequence-1]) {
+            gameFoundationState.isMatch = false
+            gameFoundationState.gameLost();
+        }
+    },
+    userSelecting : function(){
+
     },
 } // end of gameRun
 
@@ -108,4 +133,5 @@ $('#simon-selector-4').click(function () {
 
 $('#start-button').click(function () {
     GameRun.computerInitiate();
+    //$('#start-button').addClass("quads-while-running")
 })
