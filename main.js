@@ -63,10 +63,10 @@ const GameRun = {
             if (gameFoundation.playerArray.length === gameFoundation.computerArray.length) {
                 console.log("registering the length is equal")
                 gameFoundation.playerArray = []
-                $('#level-number').html(gameFoundation.computerArray.length+1)
+                setTimeout(function(){$('#level-number').html(gameFoundation.computerArray.length+1)}, 1000)
                 setTimeout(function () {
                     GameRun.computerInitiate()
-                }, 3000)
+                }, 2000)
                 console.log("then the array is " + gameFoundation.playerArray)
             } else {
                 if (gameFoundation.playerArray.length < gameFoundation.computerArray.length) {
@@ -80,16 +80,12 @@ const GameRun = {
             console.log("thinks its wrong")
         }
     },
-
-    //if (gameFoundationState.playerSelectionSequence.length < gameFoundationState.computerSequenceArray.length){
-
     clickRun: function (number) {
         FlasherGroup.onOffQuadrant(number);
         gameFoundation.playerArray.push(number)
         console.log("first this array is " + gameFoundation.playerArray)
         GameRun.checkAgainst()
     },
-
 } // end of gameRun
 
 $('#simon-selector-1').click(function () {
