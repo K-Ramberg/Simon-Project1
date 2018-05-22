@@ -16,7 +16,7 @@ html {
 
 .quadrant {
     border: 2px solid rgb(197, 197, 197);
-    line-height: 8rem;
+    line-height: 14rem;
 }
 
 .row {
@@ -36,23 +36,34 @@ html {
 }
 
 #simon-selector-1 {
-    background-color: red;
+    background-color: #f50800;
+    background-image: url("https://www.transparenttextures.com/patterns/brick-wall-dark.png");
+    border-radius: 100% 0 0 0;
 }
 
 #simon-selector-2 {
-    background-color: blue;
+    background-color: #3b23f5;
+    background-image: url("https://www.transparenttextures.com/patterns/brick-wall-dark.png");
+    border-radius: 0 100% 0 0;
 }
 
 #simon-selector-3 {
-    background-color: yellow;
+    background-color: #faef23;
+    background-image: url("https://www.transparenttextures.com/patterns/brick-wall-dark.png");
+    border-radius: 0 0 0 100%;
 }
 
 #simon-selector-4 {
-    background-color: green;
+    background-color: #41ff24;
+    background-image: url("https://www.transparenttextures.com/patterns/brick-wall-dark.png");
+    border-radius: 0 0 100% 0;
 }
 
 .container {
     border: 2px solid black;
+    border-radius: 50%;
+    height: 90%; 
+    max-width: 30rem;
 }
 
 .successful {

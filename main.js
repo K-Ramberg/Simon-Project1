@@ -17,7 +17,7 @@ const gameFoundation = {
     gameLost: function () {
         if (this.isMatch === false) {
             $('.container').append(`<h1 class="loss">GAME OVER, BETTER LUCK NEXT TIME</h1>`)
-            play5();
+            setTimeout(function() {play5();}, 600)
         }
     }
 }
@@ -189,23 +189,23 @@ $('#diff-toggle').click(function(){
      }
 })
 
-var audio = new Audio('./sounds/red.m4a');
+var audio = new Audio('http://peal.io/download/n4a6w');
 function play1 (){
 audio.play();
 }
-var audio2 = new Audio('./sounds/blue.m4a');
+var audio2 = new Audio('http://peal.io/download/h3tlq');
 function play2 (){
 audio2.play();
 }
-var audio3 = new Audio('./sounds/yellow.m4a');
+var audio3 = new Audio('http://peal.io/download/6iens');
 function play3 (){
 audio3.play();
 }
-var audio4 = new Audio('./sounds/green.m4a');
+var audio4 = new Audio('http://peal.io/download/eovn2');
 function play4 (){
 audio4.play();
 }
-var audio5 = new Audio('./sounds/gameover.m4a');
+var audio5 = new Audio('http://peal.io/download/hr8m0');
 function play5 (){
 audio5.play();
 }
