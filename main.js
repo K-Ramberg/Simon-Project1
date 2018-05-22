@@ -37,7 +37,7 @@ const GameRun = {
             if (gameFoundation.computerArray.length > 0) {
                 setTimeout(function () {
                     FlasherGroup.onOffQuadrant(gameFoundation.computerArray[i])
-                }, (gameFoundation.currentTimeSet() + (gameFoundation.currentTimeSet() / 5)) * i)
+                }, (gameFoundation.currentTimeSet()  * i) + 500)
             }
         }
     },
@@ -52,7 +52,7 @@ const GameRun = {
             this.inertAllQuads();
             this.computerSimonSequence();
             this.sequenceFlash();
-            this.bringBackAllQuads();
+            setTimeout(function(){GameRun.bringBackAllQuads()}, gameFoundation.currentTimeSet() * gameFoundation.computerArray.length)
         }
     },
     checkAgainst: function () {
@@ -68,11 +68,6 @@ const GameRun = {
                     GameRun.computerInitiate()
                 }, 2000)
                 console.log("then the array is " + gameFoundation.playerArray)
-            } else {
-                if (gameFoundation.playerArray.length < gameFoundation.computerArray.length) {
-                    console.log('is pushing through to another selection')
-
-                }
             }
         } else {
             gameFoundation.isMatch = false
@@ -167,6 +162,7 @@ $('#reset').click(function () {
     $('#level-number').html(1)
     $('#diff-select').html('Easy')
     $('#diff-toggle').removeClass("quads-while-running")
+    $('#simon-selector-1, #simon-selector-2, #simon-selector-3, #simon-selector-4').addClass("quads-while-running")
 })
 
 $('#diff-toggle').click(function(){
