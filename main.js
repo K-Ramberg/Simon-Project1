@@ -16,7 +16,7 @@ const gameFoundation = {
     },
     gameLost: function () {
         if (this.isMatch === false) {
-            $('.container').html(`<h1>GAME OVER, BETTER LUCK NEXT TIME</h1>`)
+            $('.container').append(`<h1 class="loss">GAME OVER, BETTER LUCK NEXT TIME</h1>`)
         }
     }
 }
@@ -153,6 +153,7 @@ $('#start-button').click(function () {
         GameRun.computerInitiate()
     }, 800)
     $('#start-button').addClass("quads-while-running")
+    $('#diff-toggle').addClass("quads-while-running")
 })
 
 $('#reset').click(function () {
@@ -162,17 +163,10 @@ $('#reset').click(function () {
     gameFoundation.playerArray = []
     gameFoundation.computerArray = []
     $('#start-button').removeClass("quads-while-running")
-    $('.container').html(` <div class="row" id="gameboard-first-row">
-    <div class="col s6 hoverable quadrant quads-while-running" id="simon-selector-1">1</div>
-    <div class="col s6 hoverable quadrant quads-while-running" id="simon-selector-2">2</div>
-    </div>
-    <div class="row" id="gameboard-second-row">
-    <div class="col s6 hoverable quadrant quads-while-running" id="simon-selector-3">3</div>
-    <div class="col s6 hoverable quadrant quads-while-running" id="simon-selector-4">4</div>
-    </div>`)
+    $('.loss').remove()
     $('#level-number').html(1)
     $('#diff-select').html('Easy')
-    gameFoundation.difficulty = 'easy'
+    $('#diff-toggle').removeClass("quads-while-running")
 })
 
 $('#diff-toggle').click(function(){
