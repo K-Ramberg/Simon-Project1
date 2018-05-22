@@ -106,6 +106,7 @@ const FlasherGroup = {
     selectIndicator: function (selectorNumber) {
         if (selectorNumber === 1) {
             $('#simon-selector-1').addClass("quadrant-selected pulse")
+            
         }
         if (selectorNumber === 2) {
             $('#simon-selector-2').addClass("quadrant-selected pulse")
@@ -120,6 +121,7 @@ const FlasherGroup = {
     unIndicate: function (selectorNumber) {
         if (selectorNumber === 1) {
             $('#simon-selector-1').removeClass("quadrant-selected pulse")
+            
         }
         if (selectorNumber === 2) {
             $('#simon-selector-2').removeClass("quadrant-selected pulse")

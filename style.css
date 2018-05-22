@@ -15,8 +15,12 @@ html {
 }
 
 .quadrant {
-    border: 2px solid rgb(74, 74, 206);
-    line-height: 5rem;
+    border: 2px solid rgb(197, 197, 197);
+    line-height: 8rem;
+}
+
+.row {
+    margin-bottom: 0;
 }
 
 /* To be added as class to quadrant in .js implementing selection blowup */
@@ -47,10 +51,14 @@ html {
     background-color: green;
 }
 
+.container {
+    border: 2px solid black;
+}
+
 .successful {
-    border: 10px solid rgba(0, 128, 0, 0.507);
+    border: 2px solid rgba(0, 128, 0, 0.507);
 }
 
 .computer-done {
-    border: 10px solid rgb(231, 231, 72);
+    border: 2px solid rgb(231, 231, 72);
 }
