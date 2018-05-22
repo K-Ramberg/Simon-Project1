@@ -54,7 +54,6 @@ const GameRun = {
             this.computerSimonSequence();
             this.sequenceFlash();
             this.bringBackAllQuads();
-            this.userSelecting();
         }
     },
     checkAgainst: function () {
@@ -72,7 +71,7 @@ const GameRun = {
             } else {
                 if (gameFoundation.playerArray.length < gameFoundation.computerArray.length) {
                     console.log('is pushing through to another selection')
-                   this.userSelecting();
+                   
                 }
             }
         } else {
@@ -80,20 +79,6 @@ const GameRun = {
             gameFoundation.gameLost();
             console.log("thinks its wrong")
         }
-    },
-    userSelecting: function () {
-            $('#simon-selector-1').click(function () {
-                GameRun.clickRun(1)
-            })
-            $('#simon-selector-2').click(function () {
-                GameRun.clickRun(2)
-            })
-            $('#simon-selector-3').click(function () {
-                GameRun.clickRun(3)
-            })
-            $('#simon-selector-4').click(function () {
-                GameRun.clickRun(4)
-            })
     },
 
     //if (gameFoundationState.playerSelectionSequence.length < gameFoundationState.computerSequenceArray.length){
@@ -107,7 +92,18 @@ const GameRun = {
 
 } // end of gameRun
 
-
+$('#simon-selector-1').click(function () {
+    GameRun.clickRun(1)
+})
+$('#simon-selector-2').click(function () {
+    GameRun.clickRun(2)
+})
+$('#simon-selector-3').click(function () {
+    GameRun.clickRun(3)
+})
+$('#simon-selector-4').click(function () {
+    GameRun.clickRun(4)
+})
 
 
 
