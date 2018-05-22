@@ -40,6 +40,10 @@ const GameRun = {
                 }, (gameFoundation.currentTimeSet() + (gameFoundation.currentTimeSet() / 5)) * i)
             }
         }
+        setTimeout(function(){
+            $('#game-board').addClass("computer-done")}, (gameFoundation.currentTimeSet() + (gameFoundation.currentTimeSet() / 5)) * gameFoundation.computerArray.length)
+        setTimeout(function(){
+            $('#game-board').removeClass("computer-done")}, (gameFoundation.currentTimeSet() + (gameFoundation.currentTimeSet() / 5)) * gameFoundation.computerArray.length + 200)
     },
     inertAllQuads: function () {
         $('#simon-selector-1, #simon-selector-2, #simon-selector-3, #simon-selector-4').addClass("quads-while-running")
