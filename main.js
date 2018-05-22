@@ -2,7 +2,6 @@ const gameFoundation = {
     difficulty: 'easy',
     computerArray: [],
     playerArray: [],
-    gameLevel: 1,
     isMatch: true,
     currentTimeSet: function () {
         if (this.difficulty === 'easy') {
@@ -64,6 +63,7 @@ const GameRun = {
             if (gameFoundation.playerArray.length === gameFoundation.computerArray.length) {
                 console.log("registering the length is equal")
                 gameFoundation.playerArray = []
+                $('#level-number').html(gameFoundation.computerArray.length+1)
                 setTimeout(function () {
                     GameRun.computerInitiate()
                 }, 3000)
@@ -71,7 +71,7 @@ const GameRun = {
             } else {
                 if (gameFoundation.playerArray.length < gameFoundation.computerArray.length) {
                     console.log('is pushing through to another selection')
-                   
+
                 }
             }
         } else {
@@ -87,7 +87,7 @@ const GameRun = {
         FlasherGroup.onOffQuadrant(number);
         gameFoundation.playerArray.push(number)
         console.log("first this array is " + gameFoundation.playerArray)
-        GameRun.checkAgainst() 
+        GameRun.checkAgainst()
     },
 
 } // end of gameRun
@@ -158,7 +158,7 @@ $('#start-button').click(function () {
     $('#start-button').addClass("quads-while-running")
 })
 
-$('#reset').click(function(){
+$('#reset').click(function () {
     gameFoundation.difficulty = 'easy'
     gameFoundation.gameLevel = 1
     gameFoundation.isMatch = true
@@ -168,9 +168,10 @@ $('#reset').click(function(){
     $('.container').html(` <div class="row" id="gameboard-first-row">
     <div class="col s6 hoverable quadrant quads-while-running" id="simon-selector-1">1</div>
     <div class="col s6 hoverable quadrant quads-while-running" id="simon-selector-2">2</div>
-</div>
-<div class="row" id="gameboard-second-row">
+    </div>
+    <div class="row" id="gameboard-second-row">
     <div class="col s6 hoverable quadrant quads-while-running" id="simon-selector-3">3</div>
     <div class="col s6 hoverable quadrant quads-while-running" id="simon-selector-4">4</div>
-</div>`)
+    </div>`)
+    $('#level-number').html(1)
 })
