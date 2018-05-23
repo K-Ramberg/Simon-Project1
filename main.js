@@ -181,6 +181,8 @@ $('#reset').click(function () {
     $('.loss').remove()
     $('#level-number').html(1)
     $('#diff-select').html('Easy')
+    $('#diff-select').removeClass('diff-hard')
+    $('#diff-select').addClass('diff-easy')
     $('#diff-toggle').removeClass("quads-while-running")
     $('.simon-selector-1, .simon-selector-2, .simon-selector-3, .simon-selector-4').addClass("quads-while-running")
 })
