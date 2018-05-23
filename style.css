@@ -61,7 +61,7 @@ html {
 }
 
 .quadrant {
-    border: 2px solid rgb(197, 197, 197);
+    border: 2px solid rgb(58, 29, 3);
     line-height: 14rem;
 }
 
@@ -69,44 +69,43 @@ html {
     margin-bottom: 0;
 }
 
-
-/* To be added as class to quadrant in .js implementing selection blowup */
-.quadrant-selected {
-    border: 3px solid black;
-    pointer-events: none;
-}
-
 /* to be added while computer is running so player cant interfere */
 .quads-while-running{
     pointer-events: none;
 }
 
-#simon-selector-1 {
-    color: #f50800;
+.simon-selector-1 {
+    color: #f5080000;
     background-color: #f50800;
     background-image: url("https://www.transparenttextures.com/patterns/brick-wall-dark.png");
     border-radius: 100% 0 0 0;
 }
 
-#simon-selector-2 {
-    color: #5945f3;
+.simon-selector-2 {
+    color: #5945f300;
     background-color: #5945f3;
     background-image: url("https://www.transparenttextures.com/patterns/brick-wall-dark.png");
     border-radius: 0 100% 0 0;
 }
 
-#simon-selector-3 {
-    color: #faef23;
+.simon-selector-3 {
+    color: #faef2300;
     background-color: #faef23;
     background-image: url("https://www.transparenttextures.com/patterns/brick-wall-dark.png");
     border-radius: 0 0 0 100%;
 }
 
-#simon-selector-4 {
-    color: #41ff24;
+.simon-selector-4 {
+    color: #41ff2400;
     background-color: #41ff24;
     background-image: url("https://www.transparenttextures.com/patterns/brick-wall-dark.png");
     border-radius: 0 0 100% 0;
 }
 
+/* To be added as class to quadrant in .js implementing selection blowup */
+.quadrant-selected {
+    border: 2px solid black;
+    background-color: rgba(250, 235, 215, 0.719);
+    pointer-events: none;
+}
 

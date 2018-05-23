@@ -43,10 +43,10 @@ const GameRun = {
         }
     },
     inertAllQuads: function () {
-        $('#simon-selector-1, #simon-selector-2, #simon-selector-3, #simon-selector-4').addClass("quads-while-running")
+        $('.simon-selector-1, .simon-selector-2, .simon-selector-3, .simon-selector-4').addClass("quads-while-running")
     },
     bringBackAllQuads: function () {
-        $('#simon-selector-1, #simon-selector-2, #simon-selector-3, #simon-selector-4').removeClass("quads-while-running")
+        $('.simon-selector-1, .simon-selector-2, .simon-selector-3, .simon-selector-4').removeClass("quads-while-running")
     },
     computerInitiate: function () {
         if (gameFoundation.isMatch === true) {
@@ -85,16 +85,16 @@ const GameRun = {
     },
 } // end of gameRun
 
-$('#simon-selector-1').click(function () {
+$('.simon-selector-1').click(function () {
     GameRun.clickRun(1)
 })
-$('#simon-selector-2').click(function () {
+$('.simon-selector-2').click(function () {
     GameRun.clickRun(2)
 })
-$('#simon-selector-3').click(function () {
+$('.simon-selector-3').click(function () {
     GameRun.clickRun(3)
 })
-$('#simon-selector-4').click(function () {
+$('.simon-selector-4').click(function () {
     GameRun.clickRun(4)
 })
 
@@ -103,34 +103,34 @@ $('#simon-selector-4').click(function () {
 const FlasherGroup = {
     selectIndicator: function (selectorNumber) {
         if (selectorNumber === 1) {
-            $('#simon-selector-1').addClass("quadrant-selected pulse")
+            $('.simon-selector-1').addClass("quadrant-selected pulse")
             play1();
         }
         if (selectorNumber === 2) {
-            $('#simon-selector-2').addClass("quadrant-selected pulse")
+            $('.simon-selector-2').addClass("quadrant-selected pulse")
             play2();
         }
         if (selectorNumber === 3) {
-            $('#simon-selector-3').addClass("quadrant-selected pulse")
+            $('.simon-selector-3').addClass("quadrant-selected pulse")
             play3();
         }
         if (selectorNumber === 4) {
-            $('#simon-selector-4').addClass("quadrant-selected pulse")
+            $('.simon-selector-4').addClass("quadrant-selected pulse")
             play4();
         }
     },
     unIndicate: function (selectorNumber) {
         if (selectorNumber === 1) {
-            $('#simon-selector-1').removeClass("quadrant-selected pulse")
+            $('.simon-selector-1').removeClass("quadrant-selected pulse")
         }
         if (selectorNumber === 2) {
-            $('#simon-selector-2').removeClass("quadrant-selected pulse")
+            $('.simon-selector-2').removeClass("quadrant-selected pulse")
         }
         if (selectorNumber === 3) {
-            $('#simon-selector-3').removeClass("quadrant-selected pulse")
+            $('.simon-selector-3').removeClass("quadrant-selected pulse")
         }
         if (selectorNumber === 4) {
-            $('#simon-selector-4').removeClass("quadrant-selected pulse")
+            $('.simon-selector-4').removeClass("quadrant-selected pulse")
         }
     },
 
@@ -166,7 +166,7 @@ $('#reset').click(function () {
     $('#level-number').html(1)
     $('#diff-select').html('Easy')
     $('#diff-toggle').removeClass("quads-while-running")
-    $('#simon-selector-1, #simon-selector-2, #simon-selector-3, #simon-selector-4').addClass("quads-while-running")
+    $('.simon-selector-1, .simon-selector-2, .simon-selector-3, .simon-selector-4').addClass("quads-while-running")
 })
 
 $('#diff-toggle').click(function(){
