@@ -47,6 +47,7 @@ html {
     border: 1px solid rgba(92, 41, 21, 0.877);
     border-radius: 10%;
     font-size: 2rem;
+    cursor: pointer;
 }
 
 .start-on-click {
@@ -83,6 +84,7 @@ html {
     border: 2px solid rgb(58, 29, 3);
     line-height: 14rem;
     max-width: 50%;
+    cursor: -webkit-grabbing;
 }
 
 .row {
@@ -141,6 +143,7 @@ html {
     position: absolute;
     left:60%;
     top: 5%;
+    cursor: pointer;
 }
 .info-hide {
     visibility: hidden;
