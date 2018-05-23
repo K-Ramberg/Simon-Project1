@@ -55,6 +55,7 @@ const GameRun = {
         if (gameFoundation.isMatch === true) {
             this.inertAllQuads();
             this.computerSimonSequence();
+            console.log(gameFoundation.computerArray)
             this.sequenceFlash();
             setTimeout(function () {
                 GameRun.bringBackAllQuads()
@@ -65,10 +66,10 @@ const GameRun = {
 
         const iterationSelector = gameFoundation.playerArray.length - 1
         if (gameFoundation.playerArray[iterationSelector] === gameFoundation.computerArray[iterationSelector]) {
-            console.log("CORRECT")
             if (gameFoundation.playerArray.length === gameFoundation.computerArray.length) {
                 $('.quadrant').fadeOut('fast')
                 play6()
+                skillUpdate(gameFoundation.computerArray.length);
                 gameFoundation.playerArray = []
                 if (gameFoundation.bestScore < gameFoundation.computerArray.length) {
                     $('#score-number').html(gameFoundation.computerArray.length)
@@ -81,18 +82,15 @@ const GameRun = {
                 setTimeout(function () {
                     GameRun.computerInitiate()
                 }, 2000)
-                console.log("then the array is " + gameFoundation.playerArray)
             }
         } else {
             gameFoundation.isMatch = false
             gameFoundation.gameLost();
-            console.log("thinks its wrong")
         }
     },
     clickRun: function (number) {
         FlasherGroup.onOffQuadrant(number);
         gameFoundation.playerArray.push(number)
-        console.log("first this array is " + gameFoundation.playerArray)
         GameRun.checkAgainst()
     },
 }
@@ -249,4 +247,28 @@ var audio6 = new Audio('./sounds/quick-quitar.wav')
 
 function play6() {
     audio6.play()
+}
+
+function skillUpdate (length) {
+    if (length > 1){
+        $('.skill-response').html("Getting it Going")
+    }
+    if (length > 3){
+        $('.skill-response').html("Simon Novice")
+    }
+    if (length > 7){
+        $('.skill-response').html("Showing Promise")
+    }
+    if (length > 11){
+        $('.skill-response').html("You heave some real skill")
+    }
+    if (length > 15){
+        $('.skill-response').html("Dominating!")
+    }
+    if (length > 20){
+        $('.skill-response').html("Simon Master!")
+    }
+    if (length > 24){
+        $('.skill-response').html("Unreal!")
+    }
 }

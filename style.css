@@ -65,7 +65,7 @@ html {
     background: #afa39c71;
     border-radius: 0 0 150% 150%;
 }
-/* difficulty responder classes */
+
 .diff-easy {
     font-size: 1.8rem;
     color: #194911
@@ -189,4 +189,10 @@ html {
 }
 .level-hov:hover .level-instruction-text {
     visibility: visible;
+}
+
+.skill-response {
+    font-family: 'Special Elite', cursive;
+    font-weight: 600;
+    font-size: 1.5rem;
 }
