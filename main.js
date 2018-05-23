@@ -68,6 +68,7 @@ const GameRun = {
             console.log("CORRECT")
             if (gameFoundation.playerArray.length === gameFoundation.computerArray.length) {
                 $('.quadrant').fadeOut('fast')
+                play6()
                 gameFoundation.playerArray = []
                 if (gameFoundation.bestScore < gameFoundation.computerArray.length) {
                     $('#score-number').html(gameFoundation.computerArray.length)
@@ -235,8 +236,14 @@ var audio4 = new Audio('./sounds/quick-gun.wav');
 function play4() {
     audio4.play();
 }
-var audio5 = new Audio('');
+var audio5 = new Audio('http://peal.io/download/hr8m0');
 
 function play5() {
     audio5.play();
+}
+
+var audio6 = new Audio('./sounds/quick-quitar.wav')
+
+function play6() {
+    audio6.play()
 }
