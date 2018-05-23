@@ -9,9 +9,9 @@ When a game is started, a randomized array sequence is initiated and visually/au
 __live-site:__ (http://cranky-einstein-573009.bitballoon.com/)
 
 #### Wire Frames
-    ![MVP](wire-frame-uploads/MVP-basic.png)
+    ![MVP](https://raw.githubusercontent.com/K-Ramberg/Simon-Project1/master/wire-frame-uploads/MVP-basic.png)
 
-    ![Styled Goal](wire-frame-uploads/added-style-desired-end-product.png)    
+    ![Styled](https://raw.githubusercontent.com/K-Ramberg/Simon-Project1/master/wire-frame-uploads/added-style-desired-end-product.png)
 
 #### Langauges & Libraries
 - HTML5 
