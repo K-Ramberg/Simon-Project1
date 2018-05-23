@@ -3,19 +3,31 @@ html {
     background-image: url("https://www.transparenttextures.com/patterns/gun-metal.png");
     color: rgb(36, 26, 26);
     font-family: 'Bangers', cursive;
-    max-height: 90%;
     margin-bottom: 10rem;
-}
-
-.main-page {
     text-align: center;
 }
+
 #title-box {
     font-size: 3rem;
     border-bottom: 1rem solid rgb(87, 49, 27);
     color: rgb(48, 34, 28);
     margin-bottom: 3rem;
+}
 
+.container {
+    border-radius: 50%;
+    height: 90%; 
+    max-width: 30rem;
+    min-height: 30rem;
+}
+
+#wall-marker {
+    background-color: #e9e034;
+    min-width: 5rem;
+    border: 3px double black;
+    border-radius: 4%;
+    margin-top: 9rem;
+    font-size: 1.5rem;
 }
 
 #start-button, #reset, #diff-toggle {
@@ -97,9 +109,4 @@ html {
     border-radius: 0 0 100% 0;
 }
 
-.container {
-    border-radius: 50%;
-    height: 90%; 
-    max-width: 30rem;
-    min-height: 30rem;
-}
+
