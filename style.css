@@ -33,7 +33,7 @@ html {
 }
 
 #high-score-marker {
-    background-color: #e9e034;
+    background-color: #eb6f27;
     min-width: 5rem;
     border: 3px double black;
     border-radius: 4%;
@@ -58,7 +58,13 @@ html {
 .toggle-on-click {
     color: whitesmoke;
 }
-
+#diff-toggle {
+    border-radius: 10% 10% 0 0;
+}
+#diff-select {
+    background: #afa39c71;
+    border-radius: 0 0 150% 150%;
+}
 /* difficulty responder classes */
 .diff-easy {
     font-size: 1.8rem;
@@ -123,3 +129,7 @@ html {
     pointer-events: none;
 }
 
+.loss {
+    font-family: 'Special Elite', cursive;
+    color: rgba(70, 8, 8, 0.808);
+}

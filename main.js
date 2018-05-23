@@ -3,6 +3,7 @@ const gameFoundation = {
     computerArray: [],
     playerArray: [],
     isMatch: true,
+    bestScore: 0,
     currentTimeSet: function () {
         if (this.difficulty === 'easy') {
             return 1000
@@ -17,7 +18,9 @@ const gameFoundation = {
     gameLost: function () {
         if (this.isMatch === false) {
             $('#game-status-markers').append(`<h1 class="loss">GAME OVER, BETTER LUCK NEXT TIME</h1>`)
-            setTimeout(function() {play5();}, 600)
+            setTimeout(function () {
+                play5();
+            }, 600)
         }
     }
 }
@@ -53,7 +56,9 @@ const GameRun = {
             this.inertAllQuads();
             this.computerSimonSequence();
             this.sequenceFlash();
-            setTimeout(function(){GameRun.bringBackAllQuads()}, gameFoundation.currentTimeSet() * gameFoundation.computerArray.length)
+            setTimeout(function () {
+                GameRun.bringBackAllQuads()
+            }, gameFoundation.currentTimeSet() * gameFoundation.computerArray.length)
         }
     },
     checkAgainst: function () {
@@ -64,8 +69,14 @@ const GameRun = {
             if (gameFoundation.playerArray.length === gameFoundation.computerArray.length) {
                 $('.quadrant').fadeOut('fast')
                 gameFoundation.playerArray = []
-                setTimeout(function(){$('#level-number').html(gameFoundation.computerArray.length+1)
-                $('.quadrant').fadeIn('fast')}, 1000)
+                if (gameFoundation.bestScore < gameFoundation.computerArray.length) {
+                    $('#score-number').html(gameFoundation.computerArray.length)
+                    gameFoundation.bestScore++
+                }
+                setTimeout(function () {
+                    $('#level-number').html(gameFoundation.computerArray.length + 1)
+                    $('.quadrant').fadeIn('fast')
+                }, 1000)
                 setTimeout(function () {
                     GameRun.computerInitiate()
                 }, 2000)
@@ -149,13 +160,17 @@ $('#start-button').click(function () {
         GameRun.computerInitiate()
     }, 800)
     $('#start-button').addClass("quads-while-running start-on-click")
-    setTimeout(function(){$('#start-button').removeClass("start-on-click")},100)
+    setTimeout(function () {
+        $('#start-button').removeClass("start-on-click")
+    }, 100)
     $('#diff-toggle').addClass("quads-while-running")
 })
 
 $('#reset').click(function () {
     $('#reset').addClass("reset-on-click")
-    setTimeout(function(){$('#reset').removeClass("reset-on-click")},100)
+    setTimeout(function () {
+        $('#reset').removeClass("reset-on-click")
+    }, 100)
     gameFoundation.difficulty = 'easy'
     gameFoundation.gameLevel = 1
     gameFoundation.isMatch = true
@@ -169,47 +184,52 @@ $('#reset').click(function () {
     $('.simon-selector-1, .simon-selector-2, .simon-selector-3, .simon-selector-4').addClass("quads-while-running")
 })
 
-$('#diff-toggle').click(function(){
+$('#diff-toggle').click(function () {
     $('#diff-toggle').addClass("toggle-on-click")
-    setTimeout(function(){$('#diff-toggle').removeClass("toggle-on-click")},100)
-    if (gameFoundation.difficulty === 'easy'){
+    setTimeout(function () {
+        $('#diff-toggle').removeClass("toggle-on-click")
+    }, 100)
+    if (gameFoundation.difficulty === 'easy') {
         $('#diff-select').html('Medium')
         $('#diff-select').removeClass('diff-easy')
         $('#diff-select').addClass('diff-medium')
         gameFoundation.difficulty = 'medium'
-    }
-     else if (gameFoundation.difficulty === 'medium'){
-         $('#diff-select').html('Hard')
-         $('#diff-select').removeClass('diff-medium')
+    } else if (gameFoundation.difficulty === 'medium') {
+        $('#diff-select').html('Hard')
+        $('#diff-select').removeClass('diff-medium')
         $('#diff-select').addClass('diff-hard')
-         gameFoundation.difficulty = 'hard'
-     }
-    else if (gameFoundation.difficulty === 'hard'){
-       $('#diff-select').html('Easy')
-       $('#diff-select').removeClass('diff-hard')
+        gameFoundation.difficulty = 'hard'
+    } else if (gameFoundation.difficulty === 'hard') {
+        $('#diff-select').html('Easy')
+        $('#diff-select').removeClass('diff-hard')
         $('#diff-select').addClass('diff-easy')
-         gameFoundation.difficulty = 'easy'
-     }
+        gameFoundation.difficulty = 'easy'
+    }
 })
 
 
 var audio = new Audio('http://peal.io/download/n4a6w');
-function play1 (){
-audio.play();
+
+function play1() {
+    audio.play();
 }
 var audio2 = new Audio('http://peal.io/download/h3tlq');
-function play2 (){
-audio2.play();
+
+function play2() {
+    audio2.play();
 }
 var audio3 = new Audio('http://peal.io/download/6iens');
-function play3 (){
-audio3.play();
+
+function play3() {
+    audio3.play();
 }
 var audio4 = new Audio('http://peal.io/download/eovn2');
-function play4 (){
-audio4.play();
+
+function play4() {
+    audio4.play();
 }
 var audio5 = new Audio('http://peal.io/download/hr8m0');
-function play5 (){
-audio5.play();
+
+function play5() {
+    audio5.play();
 }
