@@ -13,37 +13,35 @@
 
 <body>
     <div class="main-page">
-        <div class="page-topper">
             <div class="row" id="title-box">
-                <div class="card-panel1 amber darken-3">SIMON BREAKER</div>
+                <div class="card-panel1 orange darken-2">SIMON BREAKER</div>
             </div>
-            <div class="row" id="game-status-markers">
-                <div class="col s4">
-                    <div>WALL</div>
-                    <div id="level-number">1</div>
-                </div>
-                <div class="col s4 hoverable card-panel1 orange darken-3" id="start-button">START</div>
-                <div class="col s4" id="difficulty-marker">
-                    <div class="hoverable" id="diff-toggle">Difficulty</div>
-                    <div id="diff-select">Easy</div>
-                </div>
+        <div class="row" id="game-status-markers">
+            <div class="col s4">
+                <div>WALL</div>
+                <div id="level-number">1</div>
             </div>
-            <div class="container" id="game-board">
-                <div class="row" id="gameboard-first-row">
-                    <div class="col s6 hoverable quadrant quads-while-running" id="simon-selector-1">.</div>
-                    <div class="col s6 hoverable quadrant quads-while-running" id="simon-selector-2">.</div>
-                </div>
-                <div class="row" id="gameboard-second-row">
-                    <div class="col s6 hoverable quadrant quads-while-running" id="simon-selector-3">.</div>
-                    <div class="col s6 hoverable quadrant quads-while-running" id="simon-selector-4">.</div>
-                </div>
+            <div class="col s4 hoverable card-panel1 orange darken-2" id="start-button">START</div>
+            <div class="col s4" id="difficulty-marker">
+                <div class="hoverable card-panel1 orange darken-2" id="diff-toggle">Difficulty</div>
+                <div id="diff-select">Easy</div>
             </div>
-            <div class="row" id="page-foot">
-                <div class="col s3 offset-s2 hoverable" id="reset">RESET GAME</div>
+        </div>
+        <div class="container" id="game-board">
+            <div class="row" id="gameboard-first-row">
+                <div class="col s6 hoverable quadrant quads-while-running" id="simon-selector-1">.</div>
+                <div class="col s6 hoverable quadrant quads-while-running" id="simon-selector-2">.</div>
             </div>
-
+            <div class="row" id="gameboard-second-row">
+                <div class="col s6 hoverable quadrant quads-while-running" id="simon-selector-3">.</div>
+                <div class="col s6 hoverable quadrant quads-while-running" id="simon-selector-4">.</div>
+            </div>
+        </div>
+        <div class="row" id="page-foot">
+            <div class="col s3 offset-s2 hoverable card-panel1 orange darken-3" id="reset">RESET GAME</div>
         </div>
 
+    </div>
 
 
 
@@ -54,10 +52,11 @@
 
 
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-        <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-            crossorigin="anonymous"></script>
-        <script src="main.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="main.js"></script>
 </body>
 
 </html>

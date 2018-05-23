@@ -1,17 +1,16 @@
-/* * {
-    border: solid;
-} */
 html {
     background-color: rgb(165, 81, 42);
     background-image: url("https://www.transparenttextures.com/patterns/gun-metal.png");
     color: rgb(36, 26, 26);
+    font-family: 'Bangers', cursive;
+    max-height: 90%;
+    margin-bottom: 10rem;
 }
 
 .main-page {
     text-align: center;
 }
 #title-box {
-    font-family: 'Bangers', cursive;
     font-size: 3rem;
     border-bottom: 1rem solid rgb(87, 49, 27);
     color: rgb(48, 34, 28);
@@ -20,7 +19,9 @@ html {
 }
 
 #start-button, #reset, #diff-toggle {
-    border: 2px solid black;
+    border: 1px solid rgba(92, 41, 21, 0.877);
+    border-radius: 10%;
+    font-size: 2rem;
 }
 
 .quadrant {
@@ -31,6 +32,7 @@ html {
 .row {
     margin-bottom: 0;
 }
+
 
 /* To be added as class to quadrant in .js implementing selection blowup */
 .quadrant-selected {
@@ -51,8 +53,8 @@ html {
 }
 
 #simon-selector-2 {
-    color: #3b23f5;
-    background-color: #3b23f5;
+    color: #5945f3;
+    background-color: #5945f3;
     background-image: url("https://www.transparenttextures.com/patterns/brick-wall-dark.png");
     border-radius: 0 100% 0 0;
 }
