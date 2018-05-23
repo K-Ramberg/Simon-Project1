@@ -24,6 +24,16 @@ html {
     font-size: 2rem;
 }
 
+.start-on-click {
+    color: greenyellow;
+}
+.reset-on-click {
+    color: red;
+}
+.toggle-on-click {
+    color: whitesmoke;
+}
+
 /* difficulty responder classes */
 .diff-easy {
     font-size: 1.8rem;

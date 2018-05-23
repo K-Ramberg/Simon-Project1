@@ -148,11 +148,14 @@ $('#start-button').click(function () {
     setTimeout(function () {
         GameRun.computerInitiate()
     }, 800)
-    $('#start-button').addClass("quads-while-running")
+    $('#start-button').addClass("quads-while-running start-on-click")
+    setTimeout(function(){$('#start-button').removeClass("start-on-click")},100)
     $('#diff-toggle').addClass("quads-while-running")
 })
 
 $('#reset').click(function () {
+    $('#reset').addClass("reset-on-click")
+    setTimeout(function(){$('#reset').removeClass("reset-on-click")},100)
     gameFoundation.difficulty = 'easy'
     gameFoundation.gameLevel = 1
     gameFoundation.isMatch = true
@@ -167,6 +170,8 @@ $('#reset').click(function () {
 })
 
 $('#diff-toggle').click(function(){
+    $('#diff-toggle').addClass("toggle-on-click")
+    setTimeout(function(){$('#diff-toggle').removeClass("toggle-on-click")},100)
     if (gameFoundation.difficulty === 'easy'){
         $('#diff-select').html('Medium')
         $('#diff-select').removeClass('diff-easy')
