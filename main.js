@@ -207,6 +207,13 @@ $('#diff-toggle').click(function () {
     }
 })
 
+$('.info-hov').click(function(){
+    $('.info-text').css("visibility", "visible")
+    $('.info-hov').mouseout(function(){
+        $('.info-text').css("visibility", "hidden")
+    })
+})
+
 
 var audio = new Audio('http://peal.io/download/n4a6w');
 

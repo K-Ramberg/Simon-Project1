@@ -133,3 +133,60 @@ html {
     font-family: 'Special Elite', cursive;
     color: rgba(70, 8, 8, 0.808);
 }
+
+.info-hov {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.5rem;
+    font-weight: 700;
+    position: absolute;
+    left:60%;
+    top: 5%;
+}
+.info-hide {
+    visibility: hidden;
+}
+
+.info-hov:hover .info-hide {
+    visibility: visible;
+}
+
+.info-text{
+    visibility: hidden;
+    border-radius: 10%;
+    width: 13rem;
+    background-color: rgba(255, 255, 255, 0.774);
+    color: rgb(20, 14, 14);
+    position: absolute;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.diff-hov .diff-instruction-text {
+    visibility: hidden;
+    border-radius: 10%;
+    width: 13rem;
+    background-color: rgba(255, 255, 255, 0.774);
+    color: rgb(20, 14, 14);
+    position: absolute;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    font-weight: 600;
+}
+.diff-hov:hover .diff-instruction-text {
+    visibility: visible;
+}
+.level-hov .level-instruction-text {
+    visibility: hidden;
+    border-radius: 10%;
+    width: 13rem;
+    background-color: rgba(255, 255, 255, 0.774);
+    color: rgb(20, 14, 14);
+    position: absolute;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    font-weight: 600;
+}
+.level-hov:hover .level-instruction-text {
+    visibility: visible;
+}
