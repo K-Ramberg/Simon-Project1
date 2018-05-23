@@ -19,6 +19,7 @@ html {
     height: 90%; 
     max-width: 30rem;
     min-height: 30rem;
+    margin-bottom: 2rem;
 }
 
 #wall-marker {
@@ -26,8 +27,20 @@ html {
     min-width: 5rem;
     border: 3px double black;
     border-radius: 4%;
-    margin-top: 9rem;
     font-size: 1.5rem;
+    margin-top: 9rem;
+    margin-left: 15%
+}
+
+#high-score-marker {
+    background-color: #e9e034;
+    min-width: 5rem;
+    border: 3px double black;
+    border-radius: 4%;
+    font-size: 1.5rem;
+    margin-right: 15%;
+    float: right;
+    margin-top: -30%
 }
 
 #start-button, #reset, #diff-toggle {
@@ -63,6 +76,7 @@ html {
 .quadrant {
     border: 2px solid rgb(58, 29, 3);
     line-height: 14rem;
+    max-width: 50%;
 }
 
 .row {
