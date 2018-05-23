@@ -90,7 +90,6 @@ html {
     margin-bottom: 0;
 }
 
-/* to be added while computer is running so player cant interfere */
 .quads-while-running{
     pointer-events: none;
 }
@@ -123,7 +122,6 @@ html {
     border-radius: 0 0 50% 0;
 }
 
-/* To be added as class to quadrant in .js implementing selection blowup */
 .quadrant-selected {
     border: 2px solid black;
     background-color: rgba(250, 235, 215, 0.719);

@@ -95,7 +95,7 @@ const GameRun = {
         console.log("first this array is " + gameFoundation.playerArray)
         GameRun.checkAgainst()
     },
-} // end of gameRun
+}
 
 $('.simon-selector-1').click(function () {
     GameRun.clickRun(1)
@@ -153,7 +153,7 @@ const FlasherGroup = {
         }, gameFoundation.currentTimeSet())
     }
 
-} //end of flasher group
+} 
 
 
 $('#start-button').click(function () {
