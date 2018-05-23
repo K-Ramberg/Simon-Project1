@@ -41,10 +41,6 @@ const GameRun = {
                 }, (gameFoundation.currentTimeSet() + (gameFoundation.currentTimeSet() / 5)) * i)
             }
         }
-        setTimeout(function(){
-            $('#game-board').addClass("computer-done")}, (gameFoundation.currentTimeSet() + (gameFoundation.currentTimeSet() / 5)) * gameFoundation.computerArray.length)
-        setTimeout(function(){
-            $('#game-board').removeClass("computer-done")}, (gameFoundation.currentTimeSet() + (gameFoundation.currentTimeSet() / 5)) * gameFoundation.computerArray.length + 200)
     },
     inertAllQuads: function () {
         $('#simon-selector-1, #simon-selector-2, #simon-selector-3, #simon-selector-4').addClass("quads-while-running")
@@ -66,10 +62,10 @@ const GameRun = {
         if (gameFoundation.playerArray[iterationSelector] === gameFoundation.computerArray[iterationSelector]) {
             console.log("CORRECT")
             if (gameFoundation.playerArray.length === gameFoundation.computerArray.length) {
-                $('#game-board').fadeOut('fast')
+                $('.quadrant').fadeOut('fast')
                 gameFoundation.playerArray = []
                 setTimeout(function(){$('#level-number').html(gameFoundation.computerArray.length+1)
-                $('#game-board').fadeIn('fast')}, 1000)
+                $('.quadrant').fadeIn('fast')}, 1000)
                 setTimeout(function () {
                     GameRun.computerInitiate()
                 }, 2000)
