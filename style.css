@@ -15,7 +15,6 @@ html {
 }
 
 .container {
-    border-radius: 50%;
     height: 90%; 
     max-width: 30rem;
     min-height: 30rem;
@@ -100,28 +99,28 @@ html {
     color: #f5080000;
     background-color: #f50800;
     background-image: url("https://www.transparenttextures.com/patterns/brick-wall-dark.png");
-    border-radius: 100% 0 0 0;
+    border-radius: 50% 0 0 0;
 }
 
 .simon-selector-2 {
     color: #5945f300;
     background-color: #5945f3;
     background-image: url("https://www.transparenttextures.com/patterns/brick-wall-dark.png");
-    border-radius: 0 100% 0 0;
+    border-radius: 0 50% 0 0;
 }
 
 .simon-selector-3 {
     color: #faef2300;
     background-color: #faef23;
     background-image: url("https://www.transparenttextures.com/patterns/brick-wall-dark.png");
-    border-radius: 0 0 0 100%;
+    border-radius: 0 0 0 50%;
 }
 
 .simon-selector-4 {
     color: #41ff2400;
     background-color: #41ff24;
     background-image: url("https://www.transparenttextures.com/patterns/brick-wall-dark.png");
-    border-radius: 0 0 100% 0;
+    border-radius: 0 0 50% 0;
 }
 
 /* To be added as class to quadrant in .js implementing selection blowup */

@@ -215,27 +215,27 @@ $('.info-hov').click(function(){
 })
 
 
-var audio = new Audio('http://peal.io/download/n4a6w');
+var audio = new Audio('./sounds/quick-drill.mov');
 
 function play1() {
     audio.play();
 }
-var audio2 = new Audio('http://peal.io/download/h3tlq');
+var audio2 = new Audio('./sounds/quick-saw.wav');
 
 function play2() {
     audio2.play();
 }
-var audio3 = new Audio('http://peal.io/download/6iens');
+var audio3 = new Audio('./sounds/quick-hammer.wav');
 
 function play3() {
     audio3.play();
 }
-var audio4 = new Audio('http://peal.io/download/eovn2');
+var audio4 = new Audio('./sounds/quick-gun.wav');
 
 function play4() {
     audio4.play();
 }
-var audio5 = new Audio('http://peal.io/download/hr8m0');
+var audio5 = new Audio('');
 
 function play5() {
     audio5.play();
