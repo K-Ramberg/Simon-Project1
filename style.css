@@ -24,6 +24,20 @@ html {
     font-size: 2rem;
 }
 
+/* difficulty responder classes */
+.diff-easy {
+    font-size: 1.8rem;
+    color: #194911
+}
+.diff-medium {
+    font-size: 1.8rem;
+    color: #bba424
+}
+.diff-hard {
+    font-size: 1.8rem;
+    color: #740c0c
+}
+
 .quadrant {
     border: 2px solid rgb(197, 197, 197);
     line-height: 14rem;

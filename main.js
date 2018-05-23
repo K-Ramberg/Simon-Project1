@@ -169,17 +169,24 @@ $('#reset').click(function () {
 $('#diff-toggle').click(function(){
     if (gameFoundation.difficulty === 'easy'){
         $('#diff-select').html('Medium')
+        $('#diff-select').removeClass('diff-easy')
+        $('#diff-select').addClass('diff-medium')
         gameFoundation.difficulty = 'medium'
     }
      else if (gameFoundation.difficulty === 'medium'){
          $('#diff-select').html('Hard')
+         $('#diff-select').removeClass('diff-medium')
+        $('#diff-select').addClass('diff-hard')
          gameFoundation.difficulty = 'hard'
      }
     else if (gameFoundation.difficulty === 'hard'){
        $('#diff-select').html('Easy')
+       $('#diff-select').removeClass('diff-hard')
+        $('#diff-select').addClass('diff-easy')
          gameFoundation.difficulty = 'easy'
      }
 })
+
 
 var audio = new Audio('http://peal.io/download/n4a6w');
 function play1 (){
