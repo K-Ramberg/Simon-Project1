@@ -49,6 +49,7 @@ html {
     cursor: pointer;
 }
 
+/* button click response styles */
 .start-on-click {
     color: greenyellow;
 }
@@ -58,14 +59,10 @@ html {
 .toggle-on-click {
     color: whitesmoke;
 }
+/* difficaulty display */
 #diff-toggle {
     border-radius: 10% 10% 0 0;
 }
-#diff-select {
-    background: #afa39c71;
-    border-radius: 0 0 150% 150%;
-}
-
 .diff-easy {
     font-size: 1.8rem;
     color: #194911
@@ -77,6 +74,10 @@ html {
 .diff-hard {
     font-size: 1.8rem;
     color: #740c0c
+}
+.diff-insane {
+    font-size: 1.8rem;
+    color: #2f00ff;
 }
 
 .quadrant {
@@ -90,38 +91,55 @@ html {
     margin-bottom: 0;
 }
 
+/* style added to make object inert for duration of classAdd */
 .quads-while-running{
     pointer-events: none;
 }
 
+/* game play button styles */
 .simon-selector-1 {
     color: #f5080000;
-    background-color: #f50800;
+    background-color: #a71a15;
     background-image: url("https://www.transparenttextures.com/patterns/brick-wall-dark.png");
     border-radius: 50% 0 0 0;
 }
 
 .simon-selector-2 {
     color: #5945f300;
-    background-color: #5945f3;
+    background-color: #4031b3;
     background-image: url("https://www.transparenttextures.com/patterns/brick-wall-dark.png");
     border-radius: 0 50% 0 0;
 }
 
 .simon-selector-3 {
     color: #faef2300;
-    background-color: #faef23;
+    background-color: #5f5b10;
     background-image: url("https://www.transparenttextures.com/patterns/brick-wall-dark.png");
     border-radius: 0 0 0 50%;
 }
 
 .simon-selector-4 {
     color: #41ff2400;
-    background-color: #41ff24;
+    background-color: #227415;
     background-image: url("https://www.transparenttextures.com/patterns/brick-wall-dark.png");
     border-radius: 0 0 50% 0;
 }
 
+/* selecotors on hover */
+.simon-selector-1:hover {
+    background-color: #f50800;
+}
+.simon-selector-2:hover {
+    background-color: #5945f3;
+}
+.simon-selector-3:hover {
+    background-color: #faef23;
+}
+.simon-selector-4:hover {
+    background-color: #41ff24;
+}
+
+/* visual indication of selection in sequence */
 .quadrant-selected {
     border: 2px solid black;
     background-color: rgba(250, 235, 215, 0.719);
@@ -133,6 +151,7 @@ html {
     color: rgba(70, 8, 8, 0.808);
 }
 
+/* informational-caption hover settings */
 .info-hov {
     font-family: 'Courier New', Courier, monospace;
     font-size: 1.5rem;
@@ -191,6 +210,7 @@ html {
     visibility: visible;
 }
 
+/* for game progress response */
 .skill-response {
     font-family: 'Special Elite', cursive;
     font-weight: 600;

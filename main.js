@@ -1,8 +1,11 @@
-const gameFoundation = {
+//the base state of new Game
+const foundation = {
     difficulty: 'easy',
     computerArray: [],
     playerArray: [],
     isMatch: true,
+    insaneMode: false,
+    insaneLength: 0,
     bestScore: 0,
     currentTimeSet: function () {
         if (this.difficulty === 'easy') {
@@ -14,18 +17,22 @@ const gameFoundation = {
         if (this.difficulty === 'hard') {
             return 250
         }
+        if (this.difficulty === 'insane'){
+            return 400
+        }
     },
-    gameLost: function () {
+    gameLost: function () { //kills the gameRun
         if (this.isMatch === false) {
             $('#game-status-markers').append(`<h1 class="loss">GAME OVER, BETTER LUCK NEXT TIME</h1>`)
+            GameRun.inertAllQuads();
             setTimeout(function () {
-                play5();
+                playGameOver();
             }, 600)
         }
     }
 }
 
-
+//turn generator object
 const GameRun = {
     sequenceNumGenerate: function () {
         const quadNumber = Math.ceil(Math.random() * 4)
@@ -33,15 +40,20 @@ const GameRun = {
     },
     computerSimonSequence: function () {
         const selection = this.sequenceNumGenerate();
-        gameFoundation.computerArray.push(selection)
+        foundation.computerArray.push(selection)
     },
-
+    insaneSequence: function() {
+        for(let i = 0; i <= foundation.insaneLength-1; i++){
+        const selection = this.sequenceNumGenerate();
+        foundation.computerArray.push(selection) 
+        }
+    },
     sequenceFlash: function () {
-        for (let i = 0; i <= gameFoundation.computerArray.length; i++) {
-            if (gameFoundation.computerArray.length > 0) {
+        for (let i = 0; i <= foundation.computerArray.length; i++) {
+            if (foundation.computerArray.length > 0) {
                 setTimeout(function () {
-                    FlasherGroup.onOffQuadrant(gameFoundation.computerArray[i])
-                }, (gameFoundation.currentTimeSet() + (gameFoundation.currentTimeSet() / 5)) * i)
+                    FlasherGroup.onOffQuadrant(foundation.computerArray[i])
+                }, (foundation.currentTimeSet() + (foundation.currentTimeSet() / 5)) * i)
             }
         }
     },
@@ -52,31 +64,42 @@ const GameRun = {
         $('.simon-selector-1, .simon-selector-2, .simon-selector-3, .simon-selector-4').removeClass("quads-while-running")
     },
     computerInitiate: function () {
-        if (gameFoundation.isMatch === true) {
+        if (foundation.isMatch === true && foundation.insaneMode === false) {
             this.inertAllQuads();
             this.computerSimonSequence();
-            console.log(gameFoundation.computerArray)
+            console.log(foundation.computerArray)
             this.sequenceFlash();
             setTimeout(function () {
                 GameRun.bringBackAllQuads()
-            }, gameFoundation.currentTimeSet() * gameFoundation.computerArray.length)
+            }, foundation.currentTimeSet() * foundation.computerArray.length)
+        }
+        if (foundation.isMatch === true && foundation.insaneMode === true){
+            this.inertAllQuads();
+            foundation.computerArray = []
+            foundation.insaneLength++
+            this.insaneSequence();
+            console.log(foundation.computerArray)
+            this.sequenceFlash();
+            setTimeout(function () {
+                GameRun.bringBackAllQuads()
+            }, foundation.currentTimeSet() * foundation.computerArray.length)
         }
     },
     checkAgainst: function () {
 
-        const iterationSelector = gameFoundation.playerArray.length - 1
-        if (gameFoundation.playerArray[iterationSelector] === gameFoundation.computerArray[iterationSelector]) {
-            if (gameFoundation.playerArray.length === gameFoundation.computerArray.length) {
+        const iterationSelector = foundation.playerArray.length - 1
+        if (foundation.playerArray[iterationSelector] === foundation.computerArray[iterationSelector]) {
+            if (foundation.playerArray.length === foundation.computerArray.length) {
                 $('.quadrant').fadeOut('fast')
-                play6()
-                skillUpdate(gameFoundation.computerArray.length);
-                gameFoundation.playerArray = []
-                if (gameFoundation.bestScore < gameFoundation.computerArray.length) {
-                    $('#score-number').html(gameFoundation.computerArray.length)
-                    gameFoundation.bestScore++
+                playPatternSuccess()
+                skillUpdate(foundation.computerArray.length);
+                foundation.playerArray = []
+                if (foundation.bestScore < foundation.computerArray.length) {
+                    $('#score-number').html(foundation.computerArray.length)
+                    foundation.bestScore++
                 }
                 setTimeout(function () {
-                    $('#level-number').html(gameFoundation.computerArray.length + 1)
+                    $('#level-number').html(foundation.computerArray.length + 1)
                     $('.quadrant').fadeIn('fast')
                 }, 1000)
                 setTimeout(function () {
@@ -84,17 +107,19 @@ const GameRun = {
                 }, 2000)
             }
         } else {
-            gameFoundation.isMatch = false
-            gameFoundation.gameLost();
+            foundation.isMatch = false
+            foundation.gameLost();
         }
     },
     clickRun: function (number) {
         FlasherGroup.onOffQuadrant(number);
-        gameFoundation.playerArray.push(number)
+        foundation.playerArray.push(number)
         GameRun.checkAgainst()
     },
-}
+} //end of GameRun
 
+
+//globally present selector options
 $('.simon-selector-1').click(function () {
     GameRun.clickRun(1)
 })
@@ -109,7 +134,7 @@ $('.simon-selector-4').click(function () {
 })
 
 
-
+//visual sequence indication object
 const FlasherGroup = {
     selectIndicator: function (selectorNumber) {
         if (selectorNumber === 1) {
@@ -148,12 +173,12 @@ const FlasherGroup = {
         this.selectIndicator(selectorNumber)
         setTimeout(function () {
             FlasherGroup.unIndicate(selectorNumber)
-        }, gameFoundation.currentTimeSet())
+        }, foundation.currentTimeSet())
     }
 
 } 
 
-
+//globally present game start
 $('#start-button').click(function () {
     setTimeout(function () {
         GameRun.computerInitiate()
@@ -165,20 +190,24 @@ $('#start-button').click(function () {
     $('#diff-toggle').addClass("quads-while-running")
 })
 
+//globally present refresh to Game Foundation
 $('#reset').click(function () {
     $('#reset').addClass("reset-on-click")
     setTimeout(function () {
         $('#reset').removeClass("reset-on-click")
     }, 100)
-    gameFoundation.difficulty = 'easy'
-    gameFoundation.gameLevel = 1
-    gameFoundation.isMatch = true
-    gameFoundation.playerArray = []
-    gameFoundation.computerArray = []
+    foundation.difficulty = 'easy'
+    foundation.gameLevel = 1
+    foundation.isMatch = true
+    foundation.playerArray = []
+    foundation.computerArray = []
     $('#start-button').removeClass("quads-while-running")
     $('.loss').remove()
     $('#level-number').html(1)
     $('#diff-select').html('Easy')
+    $('#diff-select').removeClass('diff-insane')
+    foundation.insaneMode = false
+    foundation.insaneLength = 0
     $('#diff-select').removeClass('diff-hard')
     $('#diff-select').removeClass('diff-medium')
     $('#diff-select').addClass('diff-easy')
@@ -186,29 +215,40 @@ $('#reset').click(function () {
     $('.simon-selector-1, .simon-selector-2, .simon-selector-3, .simon-selector-4').addClass("quads-while-running")
 })
 
+//Change options for speed and audio
 $('#diff-toggle').click(function () {
     $('#diff-toggle').addClass("toggle-on-click")
     setTimeout(function () {
         $('#diff-toggle').removeClass("toggle-on-click")
     }, 100)
-    if (gameFoundation.difficulty === 'easy') {
+    if (foundation.difficulty === 'easy') {
         $('#diff-select').html('Medium')
         $('#diff-select').removeClass('diff-easy')
         $('#diff-select').addClass('diff-medium')
-        gameFoundation.difficulty = 'medium'
-    } else if (gameFoundation.difficulty === 'medium') {
+        foundation.difficulty = 'medium'
+    } else if (foundation.difficulty === 'medium') {
         $('#diff-select').html('Hard')
         $('#diff-select').removeClass('diff-medium')
         $('#diff-select').addClass('diff-hard')
-        gameFoundation.difficulty = 'hard'
-    } else if (gameFoundation.difficulty === 'hard') {
-        $('#diff-select').html('Easy')
+        foundation.difficulty = 'hard'
+    } 
+    else if (foundation.difficulty === 'hard') {
+        $('#diff-select').html('INSANE')
         $('#diff-select').removeClass('diff-hard')
-        $('#diff-select').addClass('diff-easy')
-        gameFoundation.difficulty = 'easy'
+        $('#diff-select').addClass('diff-insane')
+        foundation.insaneMode = true; 
+        foundation.difficulty = 'insane'
     }
+    else if (foundation.difficulty === 'insane') {
+        $('#diff-select').html('Easy')
+        $('#diff-select').removeClass('diff-insane')
+        $('#diff-select').addClass('diff-easy')
+        foundation.insaneMode = false;
+        foundation.difficulty = 'easy'
+    }  
 })
 
+//clickable toggle for instructions
 $('.info-hov').click(function(){
     $('.info-text').css("visibility", "visible")
     $('.info-hov').mouseout(function(){
@@ -216,39 +256,81 @@ $('.info-hov').click(function(){
     })
 })
 
-
-var audio = new Audio('./sounds/quick-drill.mov');
+//audio presets
+let audio1 = new Audio('./sounds/guitar-1.wav');
+let audio1f = new Audio('./sounds/guitar-1f.wav');
+let audio1i = new Audio('./sounds/quoteBlue.m4a');
 
 function play1() {
-    audio.play();
+    if (foundation.difficulty === 'easy'){
+    audio1.play();
+    }
+    if (foundation.difficulty === 'hard'|| foundation.difficulty === 'medium'){
+        audio1f.play();
+        }
+    if (foundation.difficulty === 'insane'){
+            audio1i.play();
+        }
 }
-var audio2 = new Audio('./sounds/quick-saw.wav');
+let audio2 = new Audio('./sounds/guitar-2.wav');
+let audio2f = new Audio('./sounds/guitar-2f.wav');
+let audio2i = new Audio('./sounds/quoteGreen.m4a');
 
 function play2() {
-    audio2.play();
+    if (foundation.difficulty === 'easy'){
+        audio2.play();
+        }
+        if (foundation.difficulty === 'hard'|| foundation.difficulty === 'medium'){
+            audio2f.play();
+            }
+    if (foundation.difficulty === 'insane'){
+                audio2i.play();
+            }
 }
-var audio3 = new Audio('./sounds/quick-hammer.wav');
+let audio3 = new Audio('./sounds/guitar-3.wav');
+let audio3f = new Audio('./sounds/guitar-3f.wav');
+let audio3i = new Audio('./sounds/quoteRed.m4a');
 
 function play3() {
-    audio3.play();
+    if (foundation.difficulty === 'easy'){
+        audio3.play();
+        }
+        if (foundation.difficulty === 'hard'|| foundation.difficulty === 'medium'){
+            audio3f.play();
+            }
+    if (foundation.difficulty === 'insane'){
+                audio3i.play();
+            }
 }
-var audio4 = new Audio('./sounds/quick-gun.wav');
+let audio4 = new Audio('./sounds/guitar-4.wav');
+let audio4f = new Audio('./sounds/guitar-4f.wav');
+let audio4i = new Audio('./sounds/quoteYellow.m4a');
 
 function play4() {
-    audio4.play();
+    if (foundation.difficulty === 'easy'){
+        audio4.play();
+        }
+        if (foundation.difficulty === 'hard'|| foundation.difficulty === 'medium'){
+            audio4f.play();
+            }
+    if (foundation.difficulty === 'insane'){
+                audio4i.play();
+            }
 }
-var audio5 = new Audio('http://peal.io/download/hr8m0');
+let audio5 = new Audio('http://peal.io/download/hr8m0');
 
-function play5() {
+function playGameOver() {
     audio5.play();
 }
 
-var audio6 = new Audio('./sounds/quick-quitar.wav')
+let audio6 = new Audio('./sounds/brick-fall.wav')
 
-function play6() {
-    audio6.play()
+function playPatternSuccess() {
+    setTimeout(function(){audio6.play()},500)
 }
 
+
+//game progress commenting presets
 function skillUpdate (length) {
     if (length > 1){
         $('.skill-response').html("Getting it Going")
