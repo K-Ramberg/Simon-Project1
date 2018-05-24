@@ -326,7 +326,7 @@ function playGameOver() {
 let audio6 = new Audio('./sounds/brick-fall.wav')
 
 function playPatternSuccess() {
-    setTimeout(function(){audio6.play()},500)
+     setTimeout(function(){audio6.play()},500)
 }
 
 

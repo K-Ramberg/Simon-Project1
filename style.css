@@ -113,7 +113,7 @@ html {
 
 .simon-selector-3 {
     color: #faef2300;
-    background-color: #5f5b10;
+    background-color: #a8a118;
     background-image: url("https://www.transparenttextures.com/patterns/brick-wall-dark.png");
     border-radius: 0 0 0 50%;
 }
@@ -238,18 +238,22 @@ html {
     }
     .simon-selector-1 {
         border-radius: 0;
+        background-color: #f50800;
     }
     
     .simon-selector-2 {
         border-radius: 0;
+        background-color: #5945f3;
     }
     
     .simon-selector-3 {
         border-radius: 0;
+        background-color: #faef23;
     }
     
     .simon-selector-4 {
         border-radius: 0;
+        background-color: #41ff24;
     }
     #start-button, #reset, #diff-toggle, #diff-select {
         border-radius: 0;
