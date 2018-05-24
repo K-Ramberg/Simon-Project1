@@ -216,3 +216,56 @@ html {
     font-weight: 600;
     font-size: 1.5rem;
 }
+
+@media (max-width: 960px) {
+    .container, .row .col.s1 {
+      width: 90%;
+      max-width: 90%;
+      margin: 0 auto;
+      min-height: 0%;
+    }
+    #wall-marker {
+        margin: 0 auto;
+        float: none;
+    }
+    #high-score-marker {
+        margin: 0 auto;
+        float: none;
+    }
+    .quadrant {
+        line-height: 5rem;
+        min-width: 100%;
+    }
+    .simon-selector-1 {
+        border-radius: 0;
+    }
+    
+    .simon-selector-2 {
+        border-radius: 0;
+    }
+    
+    .simon-selector-3 {
+        border-radius: 0;
+    }
+    
+    .simon-selector-4 {
+        border-radius: 0;
+    }
+    #start-button, #reset, #diff-toggle, #diff-select {
+        border-radius: 0;
+        font-size: 5vw;
+    }
+}
+
+@media (max-width: 550px) {
+    .skill-response {
+        font-size: 1rem;
+    }
+    .col.s4.offset-s4 {
+        width: 90%;
+        margin: 0 auto;
+    }
+    .card-panel1 {
+        min-width: 50%;
+    }
+}
