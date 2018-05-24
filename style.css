@@ -219,17 +219,17 @@ html {
 
 @media (max-width: 960px) {
     .container, .row .col.s1 {
-      width: 90%;
-      max-width: 90%;
+      width: 100%;
+      max-width: 100%;
       margin: 0 auto;
       min-height: 0%;
     }
     #wall-marker {
-        margin: 0 auto;
+        margin: 10px auto;
         float: none;
     }
     #high-score-marker {
-        margin: 0 auto;
+        margin: 10px auto;
         float: none;
     }
     .quadrant {
@@ -262,7 +262,7 @@ html {
         font-size: 1rem;
     }
     .col.s4.offset-s4 {
-        width: 90%;
+        width: 100%;
         margin: 0 auto;
     }
     .card-panel1 {
