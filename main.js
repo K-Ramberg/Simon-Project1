@@ -317,7 +317,7 @@ function play4() {
                 audio4i.play();
             }
 }
-let audio5 = new Audio('http://peal.io/download/hr8m0');
+let audio5 = new Audio('./sounds/quick-guitar.wav');
 
 function playGameOver() {
     audio5.play();
